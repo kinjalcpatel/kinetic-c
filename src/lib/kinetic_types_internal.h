@@ -19,7 +19,7 @@
 #define _KINETIC_TYPES_INTERNAL_H
 
 #include "kinetic_types.h"
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 #include "kinetic_countingsemaphore.h"
 #include "kinetic_resourcewaiter_types.h"
 #include "kinetic_resourcewaiter.h"

@@ -16,7 +16,7 @@
  */
 
 #include "unity_helper.h"
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 #include "kinetic_hmac.h"
 #include "kinetic_nbo.h"
 #include "kinetic_message.h"

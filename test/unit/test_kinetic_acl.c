@@ -23,8 +23,8 @@
 
 #include "mock_kinetic_logger.h"
 
-#include "kinetic.pb-c.h"
-#include "protobuf-c.h"
+#include "kinetic/kinetic.pb-c.h"
+#include "protobuf-c/protobuf-c.h"
 
 #define TEST_DIR(F) ("test/unit/acl/" F)
 

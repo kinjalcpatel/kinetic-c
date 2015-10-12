@@ -19,7 +19,7 @@
 #define _KINETIC_LOGGER_H
 
 #include "kinetic_types_internal.h"
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 #include <stdarg.h>
 
 #define KINETIC_LOGGER_DISABLED false

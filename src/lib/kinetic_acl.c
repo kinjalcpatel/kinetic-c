@@ -22,7 +22,7 @@
 
 #include "kinetic_logger.h"
 #include "kinetic_acl.h"
-#include "json.h"
+#include "json-c/json.h"
 
 typedef struct {
     Com__Seagate__Kinetic__Proto__Command__Security__ACL__Permission permission;

@@ -21,7 +21,7 @@
 #include "kinetic_socket.h"
 #include "kinetic_hmac.h"
 #include "kinetic_logger.h"
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 #include "kinetic_nbo.h"
 #include "kinetic_allocator.h"
 #include "kinetic_controller.h"

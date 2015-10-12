@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 
 typedef enum {
     HMAC_UNKNOWN = 0,

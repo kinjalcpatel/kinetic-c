@@ -22,7 +22,7 @@
 #include "kinetic_bus.h"
 #include "kinetic_response.h"
 #include "kinetic_nbo.h"
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 #include "kinetic_logger.h"
 #include "mock_kinetic_session.h"
 #include "mock_kinetic_message.h"

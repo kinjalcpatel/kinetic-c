@@ -22,13 +22,13 @@
 #include "kinetic_types_internal.h"
 #include "kinetic_controller.h"
 #include "kinetic_logger.h"
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 #include "mock_kinetic_allocator.h"
 #include "mock_kinetic_operation.h"
 #include "mock_kinetic_resourcewaiter.h"
 #include "mock_kinetic_response.h"
 #include "mock_kinetic_session.h"
-#include "protobuf-c.h"
+#include "protobuf-c/protobuf-c.h"
 #include "kinetic_entry.h"
 #include <string.h>
 #include <stdlib.h>

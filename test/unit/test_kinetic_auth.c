@@ -20,7 +20,7 @@
 #include "kinetic_auth.h"
 #include "kinetic_hmac.h"
 #include "kinetic_nbo.h"
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 #include "kinetic_logger.h"
 #include "kinetic_types.h"
 #include "kinetic_types_internal.h"

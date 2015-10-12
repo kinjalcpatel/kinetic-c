@@ -19,7 +19,7 @@
 #define _KINETIC_HMAC_H
 
 #include "kinetic_types_internal.h"
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 
 void KineticHMAC_Init(KineticHMAC* hmac,
                       Com__Seagate__Kinetic__Proto__Command__Security__ACL__HMACAlgorithm algorithm);

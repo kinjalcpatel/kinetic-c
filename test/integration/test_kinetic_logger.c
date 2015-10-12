@@ -17,7 +17,7 @@
 
 #include "unity_helper.h"
 #include "kinetic_logger.h"
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 #include "kinetic_types_internal.h"
 #include "protobuf-c/protobuf-c.h"
 #include "byte_array.h"

@@ -22,7 +22,7 @@
 #include "mock_kinetic_resourcewaiter.h"
 #include "mock_kinetic_types_internal.h"
 #include "kinetic_logger.h"
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 #include "byte_array.h"
 #include "mock_protobuf-c.h"
 #include "mock_kinetic_memory.h"

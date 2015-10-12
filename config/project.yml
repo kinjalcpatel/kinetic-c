@@ -25,15 +25,12 @@
   :source:
     - src/lib/**
     - src/utility/**
-    - vendor/protobuf-c/protobuf-c/protobuf-c.c
-    - vendor/socket99/socket99.c
   :include:
     - src/**
     - include/**
-    - vendor/socket99/**
-    - vendor/protobuf-c/**
-    - vendor/json-c/**
-
+    - "#{ENV['PROTOBUFCPATH']}/protobuf-c/**"
+    - "#{ENV['KINETICPROTOPATH']}/kinetic/**"
+    - "#{ENV['SOCKET99PATH']}/socket99.h"
 :defines:
   :commmon: &common_defines
     - TEST
@@ -120,8 +117,10 @@
       - -l crypto
       - "-o \"${2}\""
       - -l pthread
-      - -L obj/
       - -l json-c
+      - -l kinetic.pb-c
+      - -l protobuf-c
+      - -l socket99
 
 :plugins:
   :load_paths:

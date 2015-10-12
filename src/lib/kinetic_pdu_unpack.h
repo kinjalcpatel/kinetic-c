@@ -18,7 +18,7 @@
 #ifndef KINETIC_PDU_UNPACK_H
 #define KINETIC_PDU_UNPACK_H
 
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 
 /* This wrapper only exists for mocking purposes. */
 Com__Seagate__Kinetic__Proto__Command *KineticPDU_unpack_command(ProtobufCAllocator* allocator,

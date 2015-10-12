@@ -15,7 +15,7 @@
  * See www.openkinetic.org for more project information
  */
 
-#include "kinetic.pb-c.h"
+#include "kinetic/kinetic.pb-c.h"
 #include "kinetic_types.h"
 #include "kinetic_logger.h"
 #include "protobuf-c/protobuf-c.h"

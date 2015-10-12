@@ -24,7 +24,7 @@
 
 #include "kinetic_client.h"
 #include "socket99.h"
-#include "json.h"
+#include "json-c/json.h"
 
 static int discover_service(void);
 

@@ -32,13 +32,8 @@ def git(cmd)
 end
 
 HERE = File.expand_path(File.dirname(__FILE__))
-VENDOR_PATH = File.join(HERE, 'vendor')
-PROTOBUF_CORE = File.join(VENDOR_PATH, 'protobuf-2.6.0')
-PROTOBUF_C = File.join(VENDOR_PATH, 'protobuf-c')
-PROTO_IN = File.join(VENDOR_PATH, 'kinetic-protocol')
 BUILD_ARTIFACTS = File.join(HERE, 'build', 'artifacts', 'release')
 TEST_ARTIFACTS = File.join(HERE, 'build', 'artifacts', 'test')
-PROTO_OUT = File.join(HERE, 'src', 'lib')
 TEST_TEMP = File.join(HERE, 'build', 'test', 'temp')
 DOCS_PATH = File.join(HERE, 'docs/api')
 
@@ -79,39 +74,6 @@ end
 task :test_all => ['report_toolchain', 'tests:unit', 'tests:integration']
 
 task :default => ['report_toolchain', 'test:delta']
-
-desc "Generate protocol buffers"
-task :proto => [PROTO_OUT] do
-
-  report_banner "Building/installing #{PROTOBUF_CORE}"
-  cd PROTOBUF_CORE do
-    execute_command "./configure --disable-shared; make; make check; sudo make install"
-  end
-
-  report_banner "Building/installing #{PROTOBUF_C}"
-  cd PROTOBUF_C do
-    execute_command "./autogen.sh && ./configure && make && sudo make install"
-    protoc_c = `which protoc-c`
-    raise "Failed to find protoc-c utility" if protoc_c.strip.empty?
-    versions = `protoc-c --version`
-    version_match = versions.match /^protobuf-c (\d+\.\d+\.\d+-?r?c?\d*)\nlibprotoc (\d+\.\d+\.\d+-?r?c?\d*)$/mi
-    raise "Failed to query protoc-c/libprotoc version info" if version_match.nil?
-    protobuf_c_ver, libprotoc_ver = version_match[1..2]
-    report_banner "Successfully built protobuf-c"
-    report "protoc-c  v#{protobuf_c_ver}"
-    report "libprotoc v#{libprotoc_ver}"
-    report
-  end
-
-  report_banner "Generating Kinetic C protocol buffers from #{"#{PROTO_IN}/kinetic.proto"}"
-  cd PROTO_OUT do
-    cp "#{PROTO_IN}/kinetic.proto", "."
-    execute_command "protoc-c --c_out=. kinetic.proto"
-    rm "kinetic.proto"
-  end
-  report "Generated #{Dir["#{PROTO_OUT}/kinetic.pb-c.*"]}\n\n"
-
-end
 
 namespace :doxygen do
 
