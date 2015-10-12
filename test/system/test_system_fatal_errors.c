@@ -39,7 +39,7 @@ void tearDown(void)
 void test_Put_with_invalid_HMAC_should_cause_hangup(void)
 {
     if (SystemTestIsUnderSimulator()) {
-        TEST_IGNORE_MESSAGE("Simulator does not yet support remote hangup on HMAC error (as of 2015-03-09)")
+        TEST_IGNORE_MESSAGE("Simulator does not yet support remote hangup on HMAC error (as of 2015-03-09)");
     }
 
     uint8_t KeyData[32], TagData[32], ValueData[32];

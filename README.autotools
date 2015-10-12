@@ -1,0 +1,61 @@
+Introduction
+============
+This repository provides the code for building the kinetic-c-client library and utilities
+
+Dependencies
+============
+* autoconf-2.69
+* kientic-protocol
+* openssl, openssl-devel
+* protobuf-c, protobuf-c-devel
+* json-c, json-c-devel
+* socket99, socket99-devel
+* These dependencies versions are known to work with building Kinetic_client, other version may or may not break build.
+
+Note: rpm for kinetic-protocol and socket99 library & headers packages are not available in any rpm repos,
+      so developer has to download kinetic-proto from "https://github.com/Kinetic/kinetic-protocol"
+      and socket99 from "https://github.com/silentbicycle/socket99", build and install the required files.
+
+Initial Setup
+=============
+To build kinetic-c-client, make sure you have all the dependencies installed to run the programs mentioned in the following steps.
+
+1. To Create build makefiles from autotools. Run autogen.sh script in the top source code directory to generate configure script:
+	./autogen.sh
+
+2. Run configure script from the source directory, if you are using default include path.
+	./configure
+
+   The configure script expects the dependencies header files to be included from "${prefix}/include" directory.
+   If your header file include path is different then use CPPFLAGS variables to provide your include path. For example,
+        export CPPFLAGS="-I<your include path>"
+        ./configure
+
+        or
+
+       ./configure CPPFLAGS="-I<your include path>"
+
+   Similarly, if your library include path is different then "${prefix}/lib" then use LDFLAGS variable to specify your
+   library include path. For example,
+        export LDFLAGS="-L<your library path>"
+        ./configure
+
+        or
+
+        ./configure LDFLAGS="-L<your library path>"
+
+3. Build the kientic-client libraries and utility binaries from the build directory.
+	make
+
+4. To build and run tests,
+	make check
+
+5. Install the kientic-client libraries and utilities,
+	make install
+
+6. Uninstall the kinetic-client libraries and utilities,
+	make uninstall
+
+7. Clean the directory for another clean build.
+	make clean
+	make distclean

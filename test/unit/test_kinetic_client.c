@@ -22,7 +22,6 @@
 #include "kinetic_logger.h"
 #include "kinetic_types.h"
 #include "kinetic_types_internal.h"
-#include "kinetic_version_info.h"
 #include "byte_array.h"
 #include "mock_kinetic_builder.h"
 #include "mock_kinetic_operation.h"

@@ -13,8 +13,17 @@ before_script:
   - if [ "$TRAVIS_OS_NAME" = "osx"   ] ; then sudo brew outdated openssl || brew upgrade openssl ; fi
   - if [ "$TRAVIS_OS_NAME" = "osx"   ] ; then export OPENSSL_PATH=/usr/local/opt/openssl ; fi
   - if [ $CC == 'gcc'                ] ; then export CC=gcc-4.8; fi;
+  - if [ "$TRAVIS_OS_NAME" = "linux" ] ; then sudo apt-get install autoconf automake libtool fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ] ; then sudo brew install autoconf automake libtool fi
+  - git clone https://github.com/ThrowTheSwitch/Unity.git
   - bundle install
+  - ./autogen.sh
+  - ./configure UNITYPATH="Unity"
   - make clean
   - make start_simulator
 script:
   - make all
+  - make test
+  - make test_internals
+  - make run
+  - make check

@@ -28,9 +28,11 @@
   :include:
     - src/**
     - include/**
-    - "#{ENV['PROTOBUFCPATH']}/protobuf-c/**"
-    - "#{ENV['KINETICPROTOPATH']}/kinetic/**"
-    - "#{ENV['SOCKET99PATH']}/socket99.h"
+    - "#{ENV['PROTOBUFCPATH']}"
+    - "#{ENV['PROTOBUFCPATH']}/protobuf-c"
+    - "#{ENV['KINETICPROTOPATH']}"
+    - "#{ENV['KINETICPROTOPATH']}/kinetic"
+    - "#{ENV['SOCKET99PATH']}"
 :defines:
   :commmon: &common_defines
     - TEST

@@ -16,7 +16,6 @@
  */
 
 #include "kinetic_logger.h"
-#include "kinetic_version_info.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
@@ -45,7 +44,6 @@ static void flush_buffer(void);
 static inline char* get_buffer(void);
 static inline void finish_buffer(void);
 static void log_protobuf_message(int log_level, const ProtobufCMessage *msg, char* indent);
-static void log_version_info(void);
 
 //------------------------------------------------------------------------------
 // Public Method Definitions
@@ -76,7 +74,6 @@ void KineticLogger_Init(const char* log_file, int log_level)
             KineticLoggerHandle = fopen(log_file, "a+");
             KINETIC_ASSERT(KineticLoggerHandle != NULL);
         }
-        log_version_info();
     }
 }
 
@@ -125,12 +122,6 @@ void KineticLogger_LogPrintf(int log_level, const char* format, ...)
     strcat(Buffer, "\n");
 
     finish_buffer();
-}
-
-static void log_version_info(void)
-{
-    KineticLogger_LogPrintf(1, "kinetic-c version: v%s (protocol: v%s, commit: %s)",
-        KINETIC_C_VERSION, KINETIC_C_PROTOCOL_VERSION, KINETIC_C_REPO_HASH);
 }
 
 void KineticLogger_LogLocation(const char* filename, int line, const char* message)

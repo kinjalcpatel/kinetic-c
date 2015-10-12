@@ -4,14 +4,16 @@
 # Linux-specific, and requires the "perf" package.
 ##################################################
 
-CMD="$*"
+CMD="$2"
 
-if [ -z ${CMD} ]; then
-    echo Usage: mk_flamegraph COMMAND
+if [ -z "$1" ]; then
+    echo "Usage: mk_flamegraph  FLAMEGRAPH_PATH  COMMAND"
+    echo -n "Download flamegraph from https://github.com/brendangregg/FlameGraph.git and"
+    echo " provide path to flamegraph.pl as FLAMEGRAPH_PATH"
 else
     pwd
     # -g: call graph
     sudo perf record --freq=993 --all-cpus -g --output=perf.out -- ${CMD}
-    sudo perf script --input=perf.out | vendor/FlameGraph/stackcollapse-perf.pl > out.perf-folded
-    vendor/FlameGraph/flamegraph.pl out.perf-folded > perf_out.svg
+    sudo perf script --input=perf.out | $1/stackcollapse-perf.pl > out.perf-folded
+    $1/flamegraph.pl out.perf-folded > perf_out.svg
 fi

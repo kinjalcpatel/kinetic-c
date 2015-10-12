@@ -16,7 +16,6 @@
  */
 
 #include "kinetic_types_internal.h"
-#include "kinetic_version_info.h"
 #include "kinetic_client.h"
 #include "kinetic_allocator.h"
 #include "kinetic_session.h"
@@ -29,17 +28,6 @@
 #include "kinetic_memory.h"
 #include <stdlib.h>
 #include <sys/time.h>
-
-static const KineticVersionInfo VersionInfo = {
-    .version = KINETIC_C_VERSION,
-    .protocolVersion = KINETIC_C_PROTOCOL_VERSION,
-    .repoCommitHash = KINETIC_C_REPO_HASH,
-};
-
-const KineticVersionInfo * KineticClient_Version(void)
-{
-    return &VersionInfo;
-}
 
 KineticClient * KineticClient_Init(KineticClientConfig *config)
 {
